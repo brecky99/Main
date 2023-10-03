@@ -1,0 +1,183 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Key System", HidePremium = true, SaveConfig = true, IntroEnabled = false})
+
+
+OrionLib:MakeNotification({
+    Name = "Key System",
+    Content = "Maximus Key System",
+    Image = "rbxassetid://4483345998",
+    Time = 5
+})
+
+
+_G.Key = "Maximus"
+_G.Key = "yybra"
+_G.KeyInput = "string"
+
+function MakeScriptHub()
+        local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+        local Window = OrionLib:MakeWindow({Name = "Maximus Hub", HidePremium = true, SaveConfig = true, IntroEnabled = true, IntroText = "Maximus Hub"})
+
+        OrionLib:MakeNotification({
+                Name = "Maximus System",
+                Content = "Loading Script...",
+                Image = "rbxassetid://4483345998",
+                Time = 3
+            })
+
+            --valores
+            _G.AutoClick = true
+
+        
+            --funcao
+            function AutoClick()
+                while _G.AutoClick == true do
+                    local args = {
+                        [1] = 0.5,
+                        [2] = CFrame.new(-156.39747619628906, 33.08897399902344, -161.9885711669922, -0.9135444164276123, -0.22209112346172333, 0.3407525420188904, 1.4901162970204496e-08, 0.8377667665481567, 0.5460283160209656, -0.4067392349243164, 0.49882110953330994, -0.7653369903564453),
+                        [3] = {
+                            ["3751686685"] = Vector3.new(682.900390625, 358.2437438964844, 32.44183349609375),
+                            ["4382948514"] = Vector3.new(733.790771484375, 45.5833740234375, 216.8018798828125)
+                        },
+                        [4] = {
+                            [1] = 696,
+                            [2] = 192
+                        }
+                    }
+                    
+                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ParryAttempt"):FireServer(unpack(args))
+                    wait(0.001)
+                    end
+                end
+
+            --Tabs
+            local Tab = Window:MakeTab({
+                Name = "Main",
+                Icon = "rbxassetid://4483345998",
+                PremiumOnly = false
+            })
+            
+            local Box = Window:MakeTab({
+                Name = "Boxes",
+                Icon = "rbxassetid://4483345998",
+                PremiumOnly = false
+            })
+            
+            local Misc = Window:MakeTab({
+                Name = "Misc",
+                Icon = "rbxassetid://4483345998",
+                PremiumOnly = false
+            })
+            
+            Tab:AddLabel("Game")
+            
+            Tab:AddButton({
+                Name = "Auto Parry",
+                Callback = function()
+                          getgenv().visualizer = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/main/RedCircleBlock"))() 
+                  end    
+            }) 
+            
+
+            Tab:AddButton({
+                Name = "Auto Win",
+                Default = false,
+                Callback = function(Value)
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/magoscripts/MagoHub/main/Auto%20win'))()
+                end    
+            })
+
+
+            Tab:AddToggle({
+                Name = "Auto Click",
+                Default = false,
+                Callback = function(Value)
+                _G.AutoClick = Value
+                AutoClick()
+                end    
+            })
+            
+
+
+            Box:AddLabel("Boxes")
+            
+            Box:AddButton({
+                Name = "Open ExplosionBox",
+                Callback = function()             
+                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Store"):WaitForChild("RequestOpenExplosionBox"):InvokeServer()
+                end
+            })
+            
+            Box:AddButton({
+                Name = "Open SwordBox",
+                Callback = function()             
+                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Store"):WaitForChild("RequestOpenSwordBox"):InvokeServer()
+                end
+            })
+            
+            Misc:AddLabel("Player")
+            
+            Misc:AddButton({
+                Name = "Fly",
+                Callback = function(value)             
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/Pro69Yes/sussy-Script/main/SecuredFlyGuiv3.lua'))()
+                end
+            })
+            
+            Misc:AddToggle({
+                Name = "Super Speed",
+                Default = false,
+                Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+                end    
+            })            
+
+end
+
+function CorrectKeyNotification()
+        OrionLib:MakeNotification({
+                Name = "Correct Key!",
+                Content = "Correct key Maximus-System.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+        })
+end
+
+function InCorrectKeyNotification()
+        OrionLib:MakeNotification({
+                Name = "Incorrect Key!",
+                Content = "Incorrect Key Maximus-System.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+        })
+
+end
+
+local Tab = Window:MakeTab({
+    Name = "Key System",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+
+Tab:AddTextbox({
+    Name = "Put your Key here",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(Value)
+            _G.KeyInput = Value
+    end	  
+})
+
+Tab:AddButton({
+    Name = "Check your Key!",
+    Callback = function()
+                  if _G.KeyInput == _G.Key then
+                MakeScriptHub()
+                CorrectKeyNotification()
+                else
+                InCorrectKeyNotification()
+                end
+      end    
+})
